@@ -1,3 +1,5 @@
+package Katzenmemory;
+
 /*
  * Lesen aller Files in einem DIR
  * 
@@ -13,13 +15,13 @@ public class Karte {
     private File[] filenames;
     
     public Karte() {
-        
+        super();
     }
     
    /*
     * einlesen der filenamen in ein array
     */
-    private File[] getFileArray (String directory) {
+    public File[] getFileArray () {
         
         filenames = new File(directory).listFiles();;
         return filenames;
@@ -28,7 +30,7 @@ public class Karte {
    /*
     * anzahl der elemente im array ausgeben
     */
-    private int getFileCount () {
+    public int getFileCount () {
         
         return filenames.length;
     }
@@ -37,7 +39,7 @@ public class Karte {
     * per zufall eine karte aus dem array zurück geben
     */
     
-    private File getRandomKarte () {
+    public File getRandomKarte () {
         // return only if JPG or PNG
         
         File picture = filenames[new Random().nextInt(filenames.length)];
@@ -50,7 +52,7 @@ public class Karte {
         }
     }
     
-    private String getMemorySize () {
+    public String getMemorySize () {
         
         int arraysize = this.getFileCount();
         
