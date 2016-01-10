@@ -52,26 +52,26 @@ public class Kartenset {
         }
     }
     
-    public String getMemorySize () {
+    public int getMemorySize () {
         
         int arraysize = this.getFileCount();
         
         if (arraysize >= 32) {
-            return "8x8";
+            return 8; //"8x8"
         }
         
         if (arraysize >= 18) {
-            return "6x6";
+            return 6; //"6x6"
         }
         
         if (arraysize >= 8) {
-            return "4x4";
+            return 4; //"4x4"
         }
         
         if (arraysize >= 2) {
-            return "2x2";
+            return 2; //"2x2"
         } else {
-            return null;
+            return 0;
         }
     }
 }

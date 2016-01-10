@@ -25,7 +25,7 @@ public class Testklasse {
             }
         }
         
-        String memory = Testkarte.getMemorySize();
+        int memory = Testkarte.getMemorySize();
         System.out.println("Memorysize: " + memory);
     }
 }
