@@ -11,7 +11,7 @@ public class Testklasse {
         File[] filearray = Testkarte.getFileArray();
         
         for ( File elem : filearray ) {
-            System.out.println(elem);
+            System.out.println("Bild gefunden: " + elem);
           }
         
         int kartenanzahl = Testkarte.getFileCount();
