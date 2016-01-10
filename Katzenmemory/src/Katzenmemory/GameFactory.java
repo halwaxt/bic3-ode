@@ -4,6 +4,7 @@ package Katzenmemory;
 import java.io.File;
 import java.util.ArrayList;
 
+// erstellt ein zufälliges Memoryset mit Filenamen
 public class GameFactory {
     
     private String[] gameDeck;
