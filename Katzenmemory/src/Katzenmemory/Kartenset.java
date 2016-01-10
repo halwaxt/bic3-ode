@@ -9,12 +9,12 @@ import java.io.File;
 import java.util.Random;
 import javax.activation.MimetypesFileTypeMap;
 
-public class Karte {
+public class Kartenset {
     
     private String directory = "../bilder/";
     private File[] filenames;
     
-    public Karte() {
+    public Kartenset() {
         super();
     }
     

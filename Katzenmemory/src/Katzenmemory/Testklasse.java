@@ -6,7 +6,7 @@ public class Testklasse {
     
     public static void main(String[] args) {
         
-        Karte Testkarte = new Karte();
+        Kartenset Testkarte = new Kartenset();
         
         File[] filearray = Testkarte.getFileArray();
         
