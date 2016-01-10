@@ -1,10 +1,11 @@
 /*
- * Lesen aller PNG Files in einem DIR
+ * Lesen aller Files in einem DIR
  * 
  */
 
 import java.io.File;
 import java.util.Random;
+import javax.activation.MimetypesFileTypeMap;
 
 public class Karte {
     
@@ -27,7 +28,7 @@ public class Karte {
    /*
     * anzahl der elemente im array ausgeben
     */
-    private int getFileCount (File[] filenames) {
+    private int getFileCount () {
         
         return filenames.length;
     }
@@ -36,8 +37,39 @@ public class Karte {
     * per zufall eine karte aus dem array zurück geben
     */
     
-    private File getRandomKarte (File[] filenames) {
-        // String random = (fruits[new Random().nextInt(fruits.length)]);
-        return filenames[new Random().nextInt(filenames.length)];
+    private File getRandomKarte () {
+        // return only if JPG or PNG
+        
+        File picture = filenames[new Random().nextInt(filenames.length)];
+        String mimeType = new MimetypesFileTypeMap().getContentType(picture);
+        
+        if(mimeType.substring(0,5).equalsIgnoreCase("image")){
+            return picture;
+        } else {
+            return null;
+        }
+    }
+    
+    private String getMemorySize () {
+        
+        int arraysize = this.getFileCount();
+        
+        if (arraysize >= 32) {
+            return "8x8";
+        }
+        
+        if (arraysize >= 18) {
+            return "6x6";
+        }
+        
+        if (arraysize >= 8) {
+            return "4x4";
+        }
+        
+        if (arraysize >= 2) {
+            return "2x2";
+        } else {
+            return null;
+        }
     }
 }
