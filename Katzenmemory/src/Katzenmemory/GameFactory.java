@@ -12,6 +12,8 @@ public class GameFactory {
     GameFactory() {
         Kartenset kartenset = new Kartenset();
         int memorysize = kartenset.getMemorySize();
+        List<String> tempset = new ArrayList<String>();
+        Random r = new Random();
 
         if (memorysize == 0) {
             System.out.println("nicht genügend Karten für ein Spiel!");
@@ -19,18 +21,21 @@ public class GameFactory {
             System.exit(1);
         }
         
-        // ziehe karten und erstelle memoryset
-        // TODO: wir brauchen Pärchen :)
-        for (int i=1; i <=(memorysize*2); i++) {
+        // ziehe karten in ein tempset
+        for (int i=1; i <=memorysize; i++) {
             String gezogeneKarte = kartenset.getRandomKarte();
             if (gezogeneKarte != null) { // nur Bilder hinzufügen
-                // check ob karte <=1 enthalten ist, dann add
-                if (Collections.frequency(memoryset, gezogeneKarte) <=1) {
-                    memoryset.add(gezogeneKarte);
-                } else {
-                    i--;
-                }
-                
+                tempset.add(gezogeneKarte); // fülle tempset mit karten
+            } else {
+                i--;
+            }
+        }
+        
+        // fülle memoryset aus dem tempset mit Pärchen
+        for (int i=1; i <=(memorysize*2); i++) {
+            String memorycard = tempset.get(r.nextInt(tempset.size()));
+            if (Collections.frequency(memoryset, memorycard) <=1) {
+                memoryset.add(memorycard);
             } else {
                 i--;
             }
