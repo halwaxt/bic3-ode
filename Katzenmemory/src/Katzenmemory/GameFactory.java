@@ -17,7 +17,7 @@ public class GameFactory {
 
         if (memorysize == 0) {
             System.out.println("nicht genügend Karten für ein Spiel!");
-            // TODO: throw exception
+            // TODO: throw exception bereits in Kartenset
             System.exit(1);
         }
         
