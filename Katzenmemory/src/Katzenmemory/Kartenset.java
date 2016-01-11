@@ -32,7 +32,16 @@ public class Kartenset {
     */
     public int getFileCount () {
         
-        return filenames.length;
+        // nur JPG zählen
+        int count = 0;
+        for (File file : filenames) {
+            String mimeType = new MimetypesFileTypeMap().getContentType(file);
+            
+            if(mimeType.substring(0,5).equalsIgnoreCase("image")){
+                count++;
+            }
+        }
+        return count;
     }
     
    /*
@@ -40,7 +49,7 @@ public class Kartenset {
     */
     
     public File getRandomKarte () {
-        // return only if JPG or PNG
+        // return only if JPG
         
         File picture = filenames[new Random().nextInt(filenames.length)];
         String mimeType = new MimetypesFileTypeMap().getContentType(picture);
