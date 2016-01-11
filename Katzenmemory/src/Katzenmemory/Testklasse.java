@@ -25,8 +25,8 @@ public class Testklasse {
             }
         }
         
-        int memory = Testkarte.getMemorySize();
-        System.out.println("Memorysize: " + memory);
+        int memorysize = Testkarte.getMemorySize();
+        System.out.println("Memorysize: " + memorysize);
         
         GameFactory gamefactory = new GameFactory();
         gamefactory.getMemoryset().forEach(System.out::println);
@@ -34,34 +34,16 @@ public class Testklasse {
         Gameplay gameplay = new Gameplay();
         gameplay.getGameset().forEach(System.out::println);
         
-        if (gameplay.compareCards(0, 1)) {
-            System.out.println("Treffer");
+        for (int j=0; j <= memorysize; j++) {
+            for (int k=0; k <= memorysize; k++) {
+                if (! ( (int)j == (int)k )) {
+                    if (gameplay.compareCards(j, k)) {
+                        System.out.println("Treffer bei j: " +j+ " und k: " +k);
+                    }
+                }
+            }
         }
         
-        if (gameplay.compareCards(0, 2)) {
-            System.out.println("Treffer");
-        }
-        
-        if (gameplay.compareCards(0, 3)) {
-            System.out.println("Treffer");
-        }
-        
-        if (gameplay.compareCards(0, 4)) {
-            System.out.println("Treffer");
-        }
-        
-        if (gameplay.compareCards(0, 5)) {
-            System.out.println("Treffer");
-        }
-        
-        if (gameplay.compareCards(0, 6)) {
-            System.out.println("Treffer");
-        }
-        
-        if (gameplay.compareCards(0, 7)) {
-            System.out.println("Treffer");
-        }
-
         System.out.println("Moves: " + gameplay.getMoves());
         System.out.println("Trues: " + gameplay.getTrues());
     }
