@@ -11,16 +11,16 @@ public class GameFactory {
     
     GameFactory() {
         Kartenset kartenset = new Kartenset();
-        File[] filearray = kartenset.getFileArray();
         int memorysize = kartenset.getMemorySize();
 
         if (memorysize == 0) {
             System.out.println("nicht genügend Karten für ein Spiel!");
+            // TODO: throw exception
             System.exit(1);
         }
         
         // ziehe karten und erstelle memoryset
-        // TODO: wir brauchen Päärchen :)
+        // TODO: wir brauchen Pärchen :)
         for (int i=1; i <=(memorysize*2); i++) {
             String gezogeneKarte = kartenset.getRandomKarte();
             if (gezogeneKarte != null) { // nur Bilder hinzufügen

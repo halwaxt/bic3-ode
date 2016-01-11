@@ -16,6 +16,7 @@ public class Kartenset {
     
     public Kartenset() {
         super();
+        this.getFileArray();
     }
     
    /*
