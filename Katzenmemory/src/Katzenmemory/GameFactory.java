@@ -3,6 +3,7 @@ package Katzenmemory;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 
 // erstellt ein zufälliges Memoryset mit Filenamen
 public class GameFactory {
@@ -27,7 +28,12 @@ public class GameFactory {
             File gezogeneKarte = kartenset.getRandomKarte();
             if (gezogeneKarte != null) { // nur Bilder hinzufügen
                 // check ob karte <=1 enthalten ist, dann add
-                memoryset.add(gezogeneKarte);
+                if (Collections.frequency(memoryset, gezogeneKarte) <=1) {
+                    memoryset.add(gezogeneKarte);
+                } else {
+                    i--;
+                }
+                
             } else {
                 i--;
             }
