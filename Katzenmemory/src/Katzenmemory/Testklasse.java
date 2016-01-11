@@ -18,14 +18,17 @@ public class Testklasse {
         System.out.println("Anzahl der Files im Array: " + kartenanzahl);
         
         for (int i=0; i <= kartenanzahl; i++) {
-            File gezogeneKarte = Testkarte.getRandomKarte();
+            String gezogeneKarte = Testkarte.getRandomKarte();
             
             if (gezogeneKarte != null) {
-                System.out.println("Filename" +i+ ": " + gezogeneKarte.getName());
+                System.out.println("Filename" +i+ ": " + gezogeneKarte);
             }
         }
         
         int memory = Testkarte.getMemorySize();
         System.out.println("Memorysize: " + memory);
+        
+        GameFactory game = new GameFactory();
+        game.getMemoryset().forEach(System.out::println);
     }
 }

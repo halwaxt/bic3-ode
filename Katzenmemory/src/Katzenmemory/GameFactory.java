@@ -1,31 +1,28 @@
 
 package Katzenmemory;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.io.*;
+import java.util.*;
 
 // erstellt ein zufälliges Memoryset mit Filenamen
 public class GameFactory {
     
-    private String[] gameDeck;
+    private List<String> memoryset = new ArrayList<String>();
     
     GameFactory() {
         Kartenset kartenset = new Kartenset();
         File[] filearray = kartenset.getFileArray();
         int memorysize = kartenset.getMemorySize();
 
-        List<File> memoryset = new ArrayList<File>(); //WTF? TODO
-
-        
         if (memorysize == 0) {
             System.out.println("nicht genügend Karten für ein Spiel!");
             System.exit(1);
         }
         
         // ziehe karten und erstelle memoryset
-        for (int i=0; i <=(memorysize*2); i++) {
-            File gezogeneKarte = kartenset.getRandomKarte();
+        // TODO: wir brauchen Päärchen :)
+        for (int i=1; i <=(memorysize*2); i++) {
+            String gezogeneKarte = kartenset.getRandomKarte();
             if (gezogeneKarte != null) { // nur Bilder hinzufügen
                 // check ob karte <=1 enthalten ist, dann add
                 if (Collections.frequency(memoryset, gezogeneKarte) <=1) {
@@ -38,5 +35,9 @@ public class GameFactory {
                 i--;
             }
         }
+    }
+    
+    public List<String> getMemoryset () {
+        return memoryset;
     }
 }

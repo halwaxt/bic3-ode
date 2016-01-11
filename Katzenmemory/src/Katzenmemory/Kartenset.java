@@ -48,14 +48,14 @@ public class Kartenset {
     * per zufall eine karte aus dem array zurück geben
     */
     
-    public File getRandomKarte () {
+    public String getRandomKarte () {
         // return only if JPG
         
         File picture = filenames[new Random().nextInt(filenames.length)];
         String mimeType = new MimetypesFileTypeMap().getContentType(picture);
         
         if(mimeType.substring(0,5).equalsIgnoreCase("image")){
-            return picture;
+            return picture.toString();
         } else {
             return null;
         }
