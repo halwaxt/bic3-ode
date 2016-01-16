@@ -1,26 +1,21 @@
 
 package Katzenmemory;
 
-import java.io.*;
-import java.util.*;
-
-/*
- * Klasse für Spiellogic:
- * - bekommt zwei Integer Werte
- * - vergleicht ob in beiden Indizies im Array das selbe steht
- * - wenn ja: true, ansonsten false
- * - counter für jeden Vergleich und für jeden True
-*/
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class Gameplay {
     
-    private List<String> gameset = new ArrayList<String>();
+    private List<String> gameset = new ArrayList<>();
+    private int memorysize = 0;
     private int countMove = 0;
     private int countTrue = 0;
     
     Gameplay() {
         GameFactory gameInit = new GameFactory();
         gameset = gameInit.getMemoryset();
+        memorysize = gameInit.getMemorySize();
     }
     
     public List<String> getGameset () {
@@ -44,5 +39,9 @@ public class Gameplay {
     
     public int getTrues () {
         return countTrue;
+    }
+    
+    public int getMemorySize () {
+        return memorysize;
     }
 }
