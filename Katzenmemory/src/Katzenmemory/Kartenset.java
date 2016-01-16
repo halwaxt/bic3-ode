@@ -24,7 +24,8 @@ public class Kartenset {
     */
     public File[] getFileArray () {
         
-        filenames = new File(directory).listFiles();;
+        // TODO: check if file is readable, throw Exception
+        filenames = new File(directory).listFiles();
         return filenames;
     }
     
@@ -51,6 +52,8 @@ public class Kartenset {
     
     public String getRandomKarte () {
         // return only if JPG
+        
+        // TODO: check if file was already taken
         
         File picture = filenames[new Random().nextInt(filenames.length)];
         String mimeType = new MimetypesFileTypeMap().getContentType(picture);
