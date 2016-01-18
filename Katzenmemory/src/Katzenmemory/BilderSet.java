@@ -50,6 +50,9 @@ public final class BilderSet {
     public int getMemorySize () {
         // Größe des möglichen Memory zurück geben
         
+        if (filecount >= 50) {
+            return 10; //"10x10"
+        }
         if (filecount >= 32) {
             return 8; //"8x8"
         }
