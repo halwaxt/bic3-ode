@@ -19,11 +19,16 @@ public class Testklasse {
          * Return: integer
          */
         int memorysize = gameplay.getMemorySize();
+        int allcards = gameplay.getDebugCountAllCards();
+        int memorycards = gameplay.getDebugCountMemoryCards();
         System.out.println("Memorysize: " + memorysize);
         
+        System.out.println("Anzahl aller Karten: " + allcards);
+        System.out.println("Anzahl der Memorykarten: " + memorycards);
+        
         gameplay.getGameset().forEach(System.out::println);
-        for (int j=0; j <= (memorysize*2)-1; j++) {
-            for (int k=0; k <= (memorysize*2)-1; k++) {
+        for (int j=0; j <= allcards; j++) {
+            for (int k=0; k <= allcards; k++) {
                 if (! ( (int)j == (int)k )) {
                     
                     /*

@@ -11,11 +11,16 @@ public class Gameplay {
     private int memorysize = 0;
     private int countMove = 0;
     private int countTrue = 0;
+    private int debugCountAllCard = 0;
+    private int debugCountMemoryCards = 0;
+    
     
     Gameplay() {
         GameFactory gameInit = new GameFactory();
         gameset = gameInit.getMemoryset();
         memorysize = gameInit.getMemorySize();
+        debugCountAllCard = gameInit.getDebugCountAllCards();
+        debugCountMemoryCards = gameInit.getDebugCountMemoryCards();
     }
     
     public List<String> getGameset () {
@@ -43,5 +48,13 @@ public class Gameplay {
     
     public int getMemorySize () {
         return memorysize;
+    }
+    
+    public int getDebugCountAllCards () {
+        return debugCountAllCard;
+    }
+    
+    public int getDebugCountMemoryCards () {
+        return debugCountMemoryCards;
     }
 }

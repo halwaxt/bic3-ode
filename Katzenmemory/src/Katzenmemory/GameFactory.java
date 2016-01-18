@@ -12,6 +12,8 @@ public class GameFactory {
     
     private final List<String> memoryset = new ArrayList<>();
     private int memorysize = 0;
+    private int debugCountAllCard = 0;
+    private int debugCountMemoryCards = 0;
     
     GameFactory() {
         super();
@@ -36,7 +38,7 @@ public class GameFactory {
         
         // ziehe karten in eine temporäre liste
         // damit wird dann das memory befüllt
-        while (tempset.size() < memorysize) {
+        while (tempset.size() < (memorysize*memorysize)/2) {
             // ziehe ein random bild aus allebilder
             try {
                 gezogenekarte = allebilder.get(r.nextInt(allebilder.size()));
@@ -49,13 +51,14 @@ public class GameFactory {
                 // checke ob es schon in der liste ist
                 if (Collections.frequency(tempset, gezogenekarte) <1) {
                     // füge Karte in die Liste ein
+                    debugCountAllCard++;
                     tempset.add(gezogenekarte);
                 }
             }
         }
         
         // ziehe random karten und baue das memoryset
-        while (memoryset.size() < (memorysize*2)) {
+        while (memoryset.size() < (memorysize*memorysize)) {
             // ziehe ein random bild aus tempset
             try {
                 memorykarte = tempset.get(r.nextInt(tempset.size()));
@@ -66,6 +69,7 @@ public class GameFactory {
             // es darf maximal zwei Mal in der Liste sein
             if (Collections.frequency(memoryset, memorykarte) <= 1) {
                 // füge Karte in die Liste ein
+                debugCountMemoryCards++;
                 memoryset.add(memorykarte);
             } 
         }
@@ -75,5 +79,13 @@ public class GameFactory {
     
     public int getMemorySize () {
         return memorysize;
+    }
+    
+    public int getDebugCountAllCards () {
+        return debugCountAllCard;
+    }
+    
+    public int getDebugCountMemoryCards () {
+        return debugCountMemoryCards;
     }
 }
